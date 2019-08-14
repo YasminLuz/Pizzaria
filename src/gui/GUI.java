@@ -1,7 +1,10 @@
 package gui;
 
+import Interface.IPizza;
+import java.awt.Component;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.DefaultListSelectionModel;
 
 /**
  *
@@ -29,9 +32,9 @@ public class GUI extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jBtSubir = new javax.swing.JButton();
+        jBtDescer = new javax.swing.JButton();
+        jBtCriar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jList3 = new javax.swing.JList();
@@ -41,25 +44,39 @@ public class GUI extends javax.swing.JFrame {
 
         jButton3.setText("jButton3");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fazer pedido");
         setBackground(new java.awt.Color(255, 204, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jScrollPane2.setViewportView(jList2);
 
-        jButton1.setText("Subir");
+        jBtSubir.setText("Subir");
+        jBtSubir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtSubirActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Descer");
+        jBtDescer.setText("Descer");
+        jBtDescer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtDescerActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Criar");
+        jBtCriar.setText("Criar");
+        jBtCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtCriarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 0));
         jLabel1.setText("Pizzaria Kero Mais");
 
         jList3.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Calabresa", "Frango", "Massa", "Orégano", "Presunto", "Queijo" };
+            String[] strings = { "Calabresa", "Frango", "Orégano", "Presunto", "Queijo" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -88,16 +105,16 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton4))
+                            .addComponent(jBtSubir)
+                            .addComponent(jBtDescer)
+                            .addComponent(jBtCriar))
                         .addGap(19, 19, 19))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton4});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jBtCriar, jBtDescer, jBtSubir});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,19 +123,19 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(37, 37, 37)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jBtSubir, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(91, 91, 91)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jBtDescer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGap(21, 21, 21)
+                        .addComponent(jBtCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jButton5)
@@ -135,10 +152,51 @@ public class GUI extends javax.swing.JFrame {
         jList2.setModel(dlm);
         
     }//GEN-LAST:event_jButton5ActionPerformed
-    private DefaultListModel dlm = new DefaultListModel();
+
+    private void jBtCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtCriarActionPerformed
+        Class classe;
+  
+            try {
+                classe = Class.forName(jList2.getSelectedValue().toString());
+                IPizza o = (IPizza) classe.newInstance();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    
+    }//GEN-LAST:event_jBtCriarActionPerformed
+
+    private void jBtSubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtSubirActionPerformed
+       int select = jList2.getSelectedIndex();
+       
+       if(jList2.getSelectedIndex()==0)
+           jBtCriar.setEnabled(false);
+       dlm.add(select - 1, dlm.get(select));
+       dlm.remove(select + 1);
+    }//GEN-LAST:event_jBtSubirActionPerformed
+
+    private void jBtDescerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtDescerActionPerformed
+        int select = jList2.getSelectedIndex();
+        dlm.add(select + 2, dlm.get(select));
+        dlm.remove(select);
+    }//GEN-LAST:event_jBtDescerActionPerformed
+     
     private void jActionPerformed(java.awt.event.ActionEvent evt) {                                               
       
     }  
+    
+     private void jList3Performed(java.awt.event.ActionEvent evt) {     
+        if(jList3.getModel().getSize() == 0)
+            jBtCriar.setEnabled(false);
+    }  
+     
+    private void jList2Performed(java.awt.event.ActionEvent evt) {                                               
+        jList2.setSelectedIndex(0);
+    }  
+    private DefaultListModel dlm = new DefaultListModel();
     /**
      * @param args the command line arguments
      */
@@ -175,10 +233,10 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jBtCriar;
+    private javax.swing.JButton jBtDescer;
+    private javax.swing.JButton jBtSubir;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList jList2;
