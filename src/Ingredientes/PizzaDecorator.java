@@ -12,6 +12,7 @@ public abstract class PizzaDecorator implements IPizza{
     protected IPizza ingrediente; 
     
     public PizzaDecorator() {
+
     }
 
     public PizzaDecorator(IPizza ingrediente) {
@@ -19,8 +20,8 @@ public abstract class PizzaDecorator implements IPizza{
     }
 
     @Override
-    public void criar2() {
-        this.ingrediente.criar2();
+    public void criar() {
+        this.ingrediente.criar();
     }
   
     

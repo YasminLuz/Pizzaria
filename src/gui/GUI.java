@@ -1,7 +1,14 @@
 package gui;
 
+import Ingredientes.Calabresa;
+import Ingredientes.Frango;
+import Ingredientes.Orégano;
+import Ingredientes.PizzaBasica;
+import Ingredientes.Presunto;
+import Ingredientes.Queijo;
 import Interface.IPizza;
 import java.awt.Component;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -155,25 +162,51 @@ public class GUI extends javax.swing.JFrame {
 
     private void jBtCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtCriarActionPerformed
         Class classe;
-  
-            try {
-                classe = Class.forName(jList2.getSelectedValue().toString());
-                IPizza o = (IPizza) classe.newInstance();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InstantiationException ex) {
-                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+//  
+          
+//             
+//        
+//        if (jList2.getValueIsAdjusting())
+        int tamanho = jList2.getModel().getSize(); //Tamanho da lista
+        ArrayList listaIngredientes = new ArrayList();
+        ArrayList chamadas = new ArrayList();
+//        try {
+            
+            for (int i = 0; i < tamanho; i++) {
+//                classe = Class.forName(jList2.getModel().getElementAt(i).toString());
+//                IPizza o = (IPizza) classe.newInstance();
+            listaIngredientes.add(jList2.getModel().getElementAt(i));
             }
-    
+            for (int i = 0; i < tamanho; i++) {
+            if(listaIngredientes.get(i) == "Calabresa")
+                new Calabresa().criar();
+            else if(listaIngredientes.get(i) == "Frango")
+                new Frango().criar();
+            else if(listaIngredientes.get(i) == "Orégano")
+                new Orégano().criar();
+            else if(listaIngredientes.get(i) == "Queijo")
+                new Queijo().criar();
+            else if(listaIngredientes.get(i) == "Presunto")
+                new Presunto().criar();
+            }
+            
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+ //Copia os valores
+        
     }//GEN-LAST:event_jBtCriarActionPerformed
 
     private void jBtSubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtSubirActionPerformed
        int select = jList2.getSelectedIndex();
-       
-       if(jList2.getSelectedIndex()==0)
+       if (jList2.getValueIsAdjusting())  
+//       if(jList2.getSelectedIndex()==0)
            jBtCriar.setEnabled(false);
+       
        dlm.add(select - 1, dlm.get(select));
        dlm.remove(select + 1);
     }//GEN-LAST:event_jBtSubirActionPerformed
