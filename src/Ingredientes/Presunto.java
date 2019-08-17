@@ -8,9 +8,6 @@ import Interface.IPizza;
  */
 public class Presunto extends PizzaDecorator{
 
-    public Presunto() {
-    }
-    
     public Presunto(IPizza ingrediente) {
         super(ingrediente);
         this.ingrediente = ingrediente;
@@ -18,7 +15,7 @@ public class Presunto extends PizzaDecorator{
 
     @Override
     public void criar() {
-       this.ingrediente.criar(); //decora
+      ingrediente.criar(); //decora
       System.out.println("Adicionando presunto...");
     }
     

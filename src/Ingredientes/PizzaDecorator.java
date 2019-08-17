@@ -1,7 +1,6 @@
 package Ingredientes;
 
 import Interface.IPizza;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -9,7 +8,7 @@ import javax.swing.JOptionPane;
  */
 public abstract class PizzaDecorator implements IPizza{
 
-    protected IPizza ingrediente; 
+    protected static IPizza ingrediente; 
     
     public PizzaDecorator() {
 
@@ -18,7 +17,7 @@ public abstract class PizzaDecorator implements IPizza{
     public PizzaDecorator(IPizza ingrediente) {
         this.ingrediente = ingrediente;
     }
-
+  
     @Override
     public void criar() {
         this.ingrediente.criar();

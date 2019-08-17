@@ -8,11 +8,7 @@ import Interface.IPizza;
  */
 public class Calabresa extends PizzaDecorator{
 
-    public Calabresa() {
-    }
-
     public Calabresa(IPizza ingrediente) {
-        super(ingrediente);
         this.ingrediente = ingrediente;
     }
 

@@ -7,6 +7,7 @@ import Ingredientes.PizzaBasica;
 import Ingredientes.Presunto;
 import Ingredientes.Queijo;
 import Interface.IPizza;
+import Principal.Principal;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -37,6 +38,7 @@ public class GUI extends javax.swing.JFrame {
 
         textField1 = new java.awt.TextField();
         jButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList();
         jBtSubir = new javax.swing.JButton();
@@ -46,10 +48,13 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jList3 = new javax.swing.JList();
         jButton5 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         textField1.setText("textField1");
 
         jButton3.setText("jButton3");
+
+        jButton1.setText("jButton1");
 
         setTitle("Fazer pedido");
         setBackground(new java.awt.Color(255, 204, 204));
@@ -96,6 +101,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Desfazer");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,10 +119,12 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5)
-                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton5)
+                            .addComponent(jButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBtSubir)
                             .addComponent(jBtDescer)
@@ -122,6 +136,8 @@ public class GUI extends javax.swing.JFrame {
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jBtCriar, jBtDescer, jBtSubir});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton2, jButton5});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,6 +162,8 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jButton5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -177,18 +195,20 @@ public class GUI extends javax.swing.JFrame {
 //                IPizza o = (IPizza) classe.newInstance();
             listaIngredientes.add(jList2.getModel().getElementAt(i));
             }
-            for (int i = 0; i < tamanho; i++) {
-            if(listaIngredientes.get(i) == "Calabresa")
-                new Calabresa().criar();
-            else if(listaIngredientes.get(i) == "Frango")
-                new Frango().criar();
-            else if(listaIngredientes.get(i) == "Orégano")
-                new Orégano().criar();
-            else if(listaIngredientes.get(i) == "Queijo")
-                new Queijo().criar();
-            else if(listaIngredientes.get(i) == "Presunto")
-                new Presunto().criar();
-            }
+            new Principal().pedido(tamanho, listaIngredientes);
+            
+//            for (int i = 0; i < tamanho; i++) {
+//            if(listaIngredientes.get(i) == "Calabresa")
+//                new Calabresa().criar();
+//            else if(listaIngredientes.get(i) == "Frango")
+//                new Frango().criar();
+//            else if(listaIngredientes.get(i) == "Orégano")
+//                new Orégano().criar();
+//            else if(listaIngredientes.get(i) == "Queijo")
+//                new Queijo().criar();
+//            else if(listaIngredientes.get(i) == "Presunto")
+//                new Presunto().criar();
+//            }
             
 //        } catch (ClassNotFoundException ex) {
 //            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -216,6 +236,10 @@ public class GUI extends javax.swing.JFrame {
         dlm.add(select + 2, dlm.get(select));
         dlm.remove(select);
     }//GEN-LAST:event_jBtDescerActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
      
     private void jActionPerformed(java.awt.event.ActionEvent evt) {                                               
       
@@ -269,6 +293,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jBtCriar;
     private javax.swing.JButton jBtDescer;
     private javax.swing.JButton jBtSubir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;

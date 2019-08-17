@@ -2,7 +2,6 @@ package Ingredientes;
 
 
 
-import Ingredientes.PizzaDecorator;
 import Interface.IPizza;
 
 
@@ -12,7 +11,10 @@ import Interface.IPizza;
  */
 public class PizzaBasica implements IPizza{
 
-    private IPizza preferencia;
+    protected IPizza preferencia;
+
+    public PizzaBasica() {
+    }
     
     public PizzaBasica(IPizza pedido) {
         this.preferencia = pedido;
@@ -21,7 +23,7 @@ public class PizzaBasica implements IPizza{
     @Override
     public void criar() {
         System.out.println("Adicionando massa...");
-        System.out.println("Adicionando mussarela...");
+        System.out.println("Adicionando tempero...");
         System.out.println("Adicionando molho...");
     }
     
