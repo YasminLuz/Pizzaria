@@ -10,7 +10,10 @@ public class Frango extends PizzaDecorator{
 
     public Frango(IPizza ingrediente) {
         super(ingrediente);
-        this.ingrediente = ingrediente;
+//        this.ingrediente = ingrediente;
+    }
+
+    public Frango() {
     }
 
     @Override

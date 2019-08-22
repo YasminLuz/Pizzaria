@@ -6,7 +6,7 @@ import Interface.IPizza;
  *
  * @author Yasmin
  */
-public abstract class PizzaDecorator implements IPizza{
+public class PizzaDecorator implements IPizza{
 
     protected static IPizza ingrediente; 
     

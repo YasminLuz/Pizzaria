@@ -9,8 +9,11 @@ import Interface.IPizza;
 public class Queijo extends PizzaDecorator {
 
     public Queijo(IPizza ingrediente) {
-//        super(ingrediente);
+        super(ingrediente);
         this.ingrediente = ingrediente;
+    }
+
+    public Queijo() {
     }
  
     @Override

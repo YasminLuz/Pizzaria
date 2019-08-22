@@ -1,17 +1,7 @@
 package gui;
 
-import Ingredientes.Calabresa;
-import Ingredientes.Frango;
-import Ingredientes.Orégano;
-import Ingredientes.PizzaBasica;
-import Ingredientes.Presunto;
-import Ingredientes.Queijo;
-import Interface.IPizza;
 import Principal.Principal;
-import java.awt.Component;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 
 /**
@@ -180,11 +170,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jBtCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtCriarActionPerformed
         Class classe;
-//  
-          
-//             
-//        
-//        if (jList2.getValueIsAdjusting())
+
         int tamanho = jList2.getModel().getSize(); //Tamanho da lista
         ArrayList listaIngredientes = new ArrayList();
         ArrayList chamadas = new ArrayList();
@@ -196,29 +182,6 @@ public class GUI extends javax.swing.JFrame {
             listaIngredientes.add(jList2.getModel().getElementAt(i));
             }
             new Principal().pedido(tamanho, listaIngredientes);
-            
-//            for (int i = 0; i < tamanho; i++) {
-//            if(listaIngredientes.get(i) == "Calabresa")
-//                new Calabresa().criar();
-//            else if(listaIngredientes.get(i) == "Frango")
-//                new Frango().criar();
-//            else if(listaIngredientes.get(i) == "Orégano")
-//                new Orégano().criar();
-//            else if(listaIngredientes.get(i) == "Queijo")
-//                new Queijo().criar();
-//            else if(listaIngredientes.get(i) == "Presunto")
-//                new Presunto().criar();
-//            }
-            
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-//        }
- //Copia os valores
-        
     }//GEN-LAST:event_jBtCriarActionPerformed
 
     private void jBtSubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtSubirActionPerformed
@@ -238,7 +201,9 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtDescerActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        int select = jList2.getSelectedIndex();
+        dlm.remove(select);
+        jList2.setModel(dlm);
     }//GEN-LAST:event_jButton2ActionPerformed
      
     private void jActionPerformed(java.awt.event.ActionEvent evt) {                                               

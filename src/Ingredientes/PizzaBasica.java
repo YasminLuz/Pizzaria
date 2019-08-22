@@ -13,13 +13,6 @@ public class PizzaBasica implements IPizza{
 
     protected IPizza preferencia;
 
-    public PizzaBasica() {
-    }
-    
-    public PizzaBasica(IPizza pedido) {
-        this.preferencia = pedido;
-    }
-
     @Override
     public void criar() {
         System.out.println("Adicionando massa...");

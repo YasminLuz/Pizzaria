@@ -9,12 +9,16 @@ import Interface.IPizza;
 public class Calabresa extends PizzaDecorator{
 
     public Calabresa(IPizza ingrediente) {
+        super(ingrediente);
         this.ingrediente = ingrediente;
+    }
+
+    public Calabresa() {
     }
 
     @Override
     public void criar() {
-      this.ingrediente.criar(); //decora
+      ingrediente.criar(); //decora
       System.out.println("Adicionando calabresa...");
     }
     

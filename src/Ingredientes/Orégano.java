@@ -9,13 +9,16 @@ import Interface.IPizza;
 public class Orégano extends PizzaDecorator{
   
     public Orégano(IPizza ingrediente) {
-//        super(ingrediente);
-        this.ingrediente = ingrediente;
+        super(ingrediente);
+//        this.ingrediente = ingrediente;
+    }
+
+    public Orégano() {
     }
 
     @Override
     public void criar() {
-       this.ingrediente.criar();
+       ingrediente.criar();
        System.out.println("Adicionando orégano...");
     }
     

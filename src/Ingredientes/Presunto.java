@@ -10,7 +10,10 @@ public class Presunto extends PizzaDecorator{
 
     public Presunto(IPizza ingrediente) {
         super(ingrediente);
-        this.ingrediente = ingrediente;
+//        this.ingrediente = ingrediente;
+    }
+
+    public Presunto() {
     }
 
     @Override
