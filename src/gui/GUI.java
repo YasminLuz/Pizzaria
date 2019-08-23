@@ -2,6 +2,8 @@ package gui;
 
 import Principal.Principal;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 
 /**
@@ -181,7 +183,18 @@ public class GUI extends javax.swing.JFrame {
 //                IPizza o = (IPizza) classe.newInstance();
             listaIngredientes.add(jList2.getModel().getElementAt(i));
             }
+            
+        try {
+            
             new Principal().pedido(tamanho, listaIngredientes);
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jBtCriarActionPerformed
 
     private void jBtSubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtSubirActionPerformed

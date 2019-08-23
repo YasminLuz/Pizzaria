@@ -18,7 +18,7 @@ public class Presunto extends PizzaDecorator{
 
     @Override
     public void criar() {
-      ingrediente.criar(); //decora
+      super.criar(); //decora
       System.out.println("Adicionando presunto...");
     }
     

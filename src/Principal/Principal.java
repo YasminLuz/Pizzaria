@@ -21,30 +21,30 @@ public class Principal {
 
     }
     
-    public void pedido(int tamanho, ArrayList listaIngredientes) {
-        IPizza pedido = new PizzaBasica();
-        PizzaDecorator decora = new PizzaDecorator(pedido);
-        
+    public void pedido(int tamanho, ArrayList listaIngredientes) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+        IPizza obj = new PizzaBasica();
+        PizzaDecorator decora = new PizzaDecorator();
+        Class classe;
+
   
         for (int i = 0; i < tamanho; i++) {
-//                classe = Class.forName("Ingredientes." + listaIngredientes.get(i).toString());
-//                IPizza o = (IPizza) classe.newInstance();
-         
-            if (listaIngredientes.get(i) == "Calabresa") 
-                decora = new Calabresa(pedido);
-            else if (listaIngredientes.get(i) == "Frango") 
-                decora = new Frango(pedido);
-            else if (listaIngredientes.get(i) == "Orégano") 
-                decora = new Orégano(pedido);
-            else if (listaIngredientes.get(i) == "Queijo") 
-                decora = new Queijo(pedido);
-            else if (listaIngredientes.get(i) == "Presunto") 
-                decora = new Presunto(pedido);
-           
-            pedido = decora;
-            
+             decora.decorator(obj);
+            classe = Class.forName("Ingredientes." + listaIngredientes.get(i));
+            obj = (IPizza) classe.newInstance();
+                   
+//            if (listaIngredientes.get(i) == "Calabresa") 
+//                decora = new Calabresa(pedido);
+//            else if (listaIngredientes.get(i) == "Frango") 
+//                decora = new Frango(pedido);
+//            else if (listaIngredientes.get(i) == "Orégano") 
+//                decora = new Orégano(pedido);
+//            else if (listaIngredientes.get(i) == "Queijo") 
+//                decora = new Queijo(pedido);
+//            else if (listaIngredientes.get(i) == "Presunto") 
+//                decora = new Presunto(pedido);
+//            pedido = obj;
+       
         }
-        decora.criar();
-   
+            decora.criar();
     }
 }

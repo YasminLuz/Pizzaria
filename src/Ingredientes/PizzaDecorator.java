@@ -18,6 +18,9 @@ public class PizzaDecorator implements IPizza{
         this.ingrediente = ingrediente;
     }
   
+    public void decorator(IPizza ingrediente) {
+        this.ingrediente = ingrediente;
+    }
     @Override
     public void criar() {
         this.ingrediente.criar();
